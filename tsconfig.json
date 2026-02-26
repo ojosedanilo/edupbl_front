@@ -1,7 +1,19 @@
 {
   "files": [],
   "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
+  "compilerOptions": {
+    "baseUrl": ".", // Diretório base para resolução de nomes de módulos não relativos
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ], // Mapeia o alias (pseudônimo) @ para o diretório src
+    }
+  }
 }

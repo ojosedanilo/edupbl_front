@@ -1,1 +1,53 @@
 @import "tailwindcss";
+
+@theme {
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+
+  --color-danger: var(--danger);
+}
+
+@layer theme {
+  /* ----- 🌞 LIGHT ----- */
+  :root {
+    --primary: #166534;
+    --primary-hover: #14532d;
+    --secondary: #15803d;
+    --accent: #c9a227;
+
+    --bg: #f8faf8;
+    --surface: #ffffff;
+    --border: #e5e7eb;
+
+    --text: #111827;
+    --text-muted: #6b7280;
+
+    --danger: #dc2626;
+  }
+
+  /* ----- 🌙 DARK ----- */
+  [data-theme="dark"] {
+    --primary: #34d07f;
+    --primary-hover: #22c55e;
+    --secondary: #2f7a4f;
+    --accent: #d8bb55;
+
+    --bg: #111513;
+    --surface: #161b18;
+    --border: #232a26;
+
+    --text: #f3f4f6;
+    --text-muted: #9ca3af;
+
+    --danger: #ef4444;
+  }
+}
