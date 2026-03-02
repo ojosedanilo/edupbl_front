@@ -1,9 +1,11 @@
 import { Navigate, Outlet } from 'react-router-dom';
+import { useCurrentUser } from '@/features/auth/hooks/useAuth'
 
 export default function ProtectedRoutes() {
-  const token = localStorage.getItem('access_token');
+  const { data: user, isLoading } = useCurrentUser();
 
-  if (!token) return <Navigate to="/login" replace />;
+  if (isLoading) return <div>Carregando...</div>;
+  if (!user) return <Navigate to="/login" replace />;
 
   return <Outlet />;
 }

@@ -13,22 +13,21 @@ import Login from "@/features/auth/pages/Login";
 import Signup from "@/features/auth/pages/Signup";
 
 export function AppRoutes() {
-    const { setTheme } = useTheme();
-    // !!! Implementar verificação de login, depois aplicar nas rotas protegidas !!!
+  const { setTheme } = useTheme();
 
-    return (
-        <Routes>
-            {/* Entrar/Criar conta */}
-            <Route path="/" element={<Index />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            {/* Página não encontrada */}
-            <Route path="*" element={<NotFound />} />
+  return (
+    <Routes>
+      {/* Entrar/Criar conta */}
+      <Route path="/" element={<Index />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      {/* Página não encontrada */}
+      <Route path="*" element={<NotFound />} />
 
-            {/* Rotas que exigem login */}
-            <Route element={<ProtectedRoutes />}>
-                <Route path="/home" element={<Home />} />
-            </Route>
-        </Routes>
-    );
+      {/* Rotas que exigem login */}
+      <Route element={<ProtectedRoutes />}>
+        <Route path="/home" element={<Home />} />
+      </Route>
+    </Routes>
+  );
 }

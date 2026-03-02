@@ -11,9 +11,7 @@
   "compilerOptions": {
     "baseUrl": ".", // Diretório base para resolução de nomes de módulos não relativos
     "paths": {
-      "@/*": [
-        "./src/*"
-      ], // Mapeia o alias (pseudônimo) @ para o diretório src
+      "@/*": ["./src/*"]
     }
   }
 }

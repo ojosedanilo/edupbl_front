@@ -5,5 +5,5 @@ export type AuthFormProps = {
     submitButtonText: string
     fields: ReactNode
     footer?: ReactNode
-    onSubmit: (event: React.SubmitEventHandler<HTMLFormElement>) => void
+    onSubmit: React.SubmitEventHandler<HTMLFormElement>
 }
