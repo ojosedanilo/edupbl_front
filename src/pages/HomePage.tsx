@@ -1,19 +1,19 @@
-import { Link } from 'react-router-dom';
-import LogoPBL from '@/assets/logo_pbl.svg';
-import { DashboardActionCard } from '@/components/ui/DashboardActionCard';
-import { GradientBackdrop } from '@/components/layout/GradientBackdrop';
-import { useCurrentUser } from '@/features/auth/hooks/useAuth';
-import { useLogout } from '@/features/auth/hooks/useAuth';
-import { Button } from '@/components/ui/Button';
+import { Link } from "react-router-dom";
+import LogoPBL from "@/assets/logo_pbl.svg";
+import { DashboardActionCard } from "@/components/ui/DashboardActionCard";
+import { GradientBackdrop } from "@/components/layout/GradientBackdrop";
+import { useCurrentUser } from "@/features/auth/hooks/useAuth";
+import { useLogout } from "@/features/auth/hooks/useAuth";
+import { Button } from "@/components/ui/Button";
 
 function roleLabel(role: string): string {
   const map: Record<string, string> = {
-    student: 'Aluno(a)',
-    guardian: 'Responsável',
-    teacher: 'Professor(a)',
-    coordinator: 'Coordenador(a)',
-    porter: 'Porteiro(a)',
-    admin: 'Administrador(a)',
+    student: "Aluno(a)",
+    guardian: "Responsável",
+    teacher: "Professor(a)",
+    coordinator: "Coordenador(a)",
+    porter: "Porteiro(a)",
+    admin: "Administrador(a)",
   };
   return map[role] ?? role;
 }
@@ -31,8 +31,7 @@ export default function HomePage() {
     );
   }
 
-  const showCoordination =
-    user.role === 'coordinator' || user.role === 'admin';
+  const showCoordination = user.role === "coordinator" || user.role === "admin";
 
   return (
     <div className="relative min-h-screen">

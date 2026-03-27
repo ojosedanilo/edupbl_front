@@ -1,6 +1,6 @@
-import { figmaAssets } from '@/config/figmaAssets';
-import { FigmaImage } from '@/components/ui/FigmaImage';
-import { cn } from '@/components/utils/cn';
+import { figmaAssets } from "@/config/figmaAssets";
+import { FigmaImage } from "@/components/ui/FigmaImage";
+import { cn } from "@/components/utils/cn";
 
 type ColumnProps = {
   src: string;
@@ -13,21 +13,21 @@ function CollageColumn({ src, alt, heightClass, tintClass }: ColumnProps) {
   return (
     <div
       className={cn(
-        'relative flex w-[min(221px,28vw)] flex-col justify-end overflow-hidden rounded-[9999px]',
-        'shadow-[8px_10px_33px_rgba(0,0,0,0.44)]',
+        "relative flex w-[min(160px,20vw)] flex-col justify-end overflow-hidden rounded-[9999px]",
+        "shadow-[8px_10px_33px_rgba(0,0,0,0.44)]",
         heightClass,
       )}
     >
       <div
-        className={cn('pointer-events-none absolute inset-0', tintClass)}
+        className={cn("pointer-events-none absolute inset-0", tintClass)}
         aria-hidden
       />
-      <div className="relative flex min-h-0 flex-1 items-end justify-center overflow-hidden">
+      <div className="relative flex min-h-0 flex-1 items-end justify-center overflow-hidden bg-gradient-to-br from-primary/40 to-accent/40">
         <FigmaImage
           src={src}
           alt={alt}
-          className="max-h-full min-h-[60%] w-auto max-w-none object-cover"
-          fallbackClassName="min-h-[80%] w-full"
+          className="h-full w-full object-cover"
+          fallbackClassName="h-full w-full"
         />
       </div>
       <div
@@ -40,31 +40,31 @@ function CollageColumn({ src, alt, heightClass, tintClass }: ColumnProps) {
 
 export function LandingPhotoCollage() {
   return (
-    <div className="flex flex-wrap items-start justify-center gap-8 md:gap-14 lg:flex-nowrap lg:justify-start">
+    <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 lg:flex-nowrap lg:justify-start">
       <CollageColumn
         src={figmaAssets.collage1}
         alt="Ambiente escolar"
-        heightClass="h-[min(450px,55vh)]"
+        heightClass="h-[180px] md:h-[240px] lg:h-[280px]"
         tintClass="bg-text-muted/40"
       />
-      <div className="flex flex-col items-end gap-8 md:gap-14">
+      <div className="flex flex-col items-end gap-4 md:gap-6">
         <CollageColumn
           src={figmaAssets.collage2}
           alt="Atividades em sala"
-          heightClass="h-[min(450px,55vh)]"
+          heightClass="h-[180px] md:h-[240px] lg:h-[280px]"
           tintClass="bg-secondary/50"
         />
         <CollageColumn
           src={figmaAssets.collage3}
           alt="Estudantes"
-          heightClass="h-[min(450px,55vh)]"
+          heightClass="h-[180px] md:h-[240px] lg:h-[280px]"
           tintClass="bg-accent/35"
         />
       </div>
       <CollageColumn
         src={figmaAssets.collage4}
         alt="Comunidade escolar"
-        heightClass="h-[min(560px,62vh)]"
+        heightClass="h-[180px] md:h-[240px] lg:h-[300px]"
         tintClass="bg-text-muted/50"
       />
     </div>
