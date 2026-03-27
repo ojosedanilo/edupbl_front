@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import LogoPBL from "@/assets/logo_pbl.svg"
 
 export default function NotFound() {

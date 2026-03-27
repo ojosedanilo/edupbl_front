@@ -1,7 +1,6 @@
 import AuthForm from "../components/AuthForm"
 import InputField from "../components/InputField"
 import { Link } from "react-router-dom";
-import LogoPBL from "@/assets/logo_pbl.svg"
 
 export default function Login() {
   return (

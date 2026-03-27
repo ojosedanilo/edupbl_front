@@ -16,6 +16,12 @@
   --color-danger: var(--danger);
 }
 
+:root {
+  --color-primary: #166534;
+  --color-accent: #C9A227;
+  --color-accent: #C9A227;
+}
+
 @layer theme {
   /* ----- 🌞 LIGHT ----- */
   :root {
@@ -49,5 +55,20 @@
     --text-muted: #9ca3af;
 
     --danger: #ef4444;
+  }
+}
+
+@layer base {
+  html, body, #root {
+    min-height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  body {
+    min-height: 100vh;
+    overflow-x: hidden;
   }
 }
