@@ -1,11 +1,11 @@
 /**
  * URLs de imagens locais importadas de `/src/assets`.
  */
-import collage1 from "@/assets/professor.png";
-import collage2 from "@/assets/lendo.png";
-import collage3 from "@/assets/formatura.png";
-import collage4 from "@/assets/mulherFormatura.png";
-import fundo from "@/assets/fundo.png";
+import collage1 from "@/assets/professor.webp";
+import collage2 from "@/assets/lendo.webp";
+import collage3 from "@/assets/formatura.webp";
+import collage4 from "@/assets/mulherFormatura.webp";
+import fundo from "@/assets/fundo.webp";
 import logoPbl from "@/assets/logo_pbl.svg";
 
 export const figmaAssets = {
