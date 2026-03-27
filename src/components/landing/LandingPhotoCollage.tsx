@@ -1,6 +1,6 @@
 import { figmaAssets } from "@/config/figmaAssets";
 import { FigmaImage } from "@/components/ui/FigmaImage";
-import { cn } from "@/components/utils/cn";
+import { cn } from "@/utils/cn";
 
 type ColumnProps = {
   src: string;

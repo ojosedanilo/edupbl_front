@@ -23,10 +23,11 @@ export default function HomePage() {
   const { data: user } = useCurrentUser();
   const logout = useLogout();
 
-  const showCoordination = user?.role === "coordinator" || user?.role === "admin";
+  const showCoordination =
+    user?.role === "coordinator" || user?.role === "admin";
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen w-full">
       <GradientBackdrop />
       <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col gap-10 px-6 py-10">
         <header className="flex flex-wrap items-center justify-between gap-4">
@@ -34,7 +35,7 @@ export default function HomePage() {
             <img src={LogoPBL} alt="" className="size-14 object-contain" />
             <div>
               <p className="text-sm font-medium text-white/80">
-                {roleLabel(user?.role ?? '')}
+                {roleLabel(user?.role ?? "")}
               </p>
               <h1 className="text-2xl font-bold text-white md:text-3xl">
                 Seja bem-vindo(a), {user?.first_name}!

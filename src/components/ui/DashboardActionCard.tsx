@@ -1,6 +1,6 @@
-import type { ReactNode } from 'react';
-import { Link } from 'react-router-dom';
-import { cn } from '@/components/utils/cn';
+import type { ReactNode } from "react";
+import { Link } from "react-router-dom";
+import { cn } from "@/utils/cn";
 
 type DashboardActionCardProps = {
   title: string;
@@ -21,8 +21,8 @@ export function DashboardActionCard({
     <Link
       to={to}
       className={cn(
-        'flex flex-col gap-2 rounded-3xl border-2 border-border bg-surface p-6 shadow-sm transition',
-        'hover:border-primary hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent',
+        "flex flex-col gap-2 rounded-3xl border-2 border-border bg-surface p-6 shadow-sm transition",
+        "hover:border-primary hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",
         className,
       )}
     >

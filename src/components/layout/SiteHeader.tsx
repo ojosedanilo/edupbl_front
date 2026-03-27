@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import LogoPBL from "@/assets/logo_pbl.svg";
-import { cn } from "@/components/utils/cn";
+import { cn } from "@/utils/cn";
 import { useCurrentUser } from "@/features/auth/hooks/useAuth";
 
 type SiteHeaderProps = {

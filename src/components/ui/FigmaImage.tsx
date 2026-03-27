@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { cn } from '@/components/utils/cn';
+import { useState } from "react";
+import { cn } from "@/utils/cn";
 
 type FigmaImageProps = {
   src: string;
@@ -19,11 +19,7 @@ export function FigmaImage({
   if (!ok) {
     return (
       <div
-        className={cn(
-          'bg-secondary/40',
-          'rounded-[9999px]',
-          fallbackClassName,
-        )}
+        className={cn("bg-secondary/40", "rounded-[9999px]", fallbackClassName)}
         aria-hidden
       />
     );

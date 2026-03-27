@@ -1,5 +1,5 @@
-import type { InputHTMLAttributes } from 'react';
-import { cn } from '@/components/utils/cn';
+import type { InputHTMLAttributes } from "react";
+import { cn } from "@/utils/cn";
 
 type TextFieldProps = InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
@@ -28,9 +28,9 @@ export function TextField({
       <input
         id={inputId}
         className={cn(
-          'h-14 w-full rounded-full border-4 border-primary bg-transparent px-5 text-text shadow-md',
-          'placeholder:text-text-muted focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/40',
-          error && 'border-danger',
+          "h-14 w-full rounded-full border-4 border-primary bg-transparent px-5 text-text shadow-md",
+          "placeholder:text-text-muted focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/40",
+          error && "border-danger",
           className,
         )}
         {...props}

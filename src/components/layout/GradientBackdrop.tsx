@@ -1,6 +1,6 @@
-import { figmaAssets } from '@/config/figmaAssets';
-import { FigmaImage } from '@/components/ui/FigmaImage';
-import { cn } from '@/components/utils/cn';
+import { figmaAssets } from "@/config/figmaAssets";
+import { FigmaImage } from "@/components/ui/FigmaImage";
+import { cn } from "@/utils/cn";
 
 type GradientBackdropProps = {
   className?: string;
@@ -15,7 +15,7 @@ export function GradientBackdrop({
   return (
     <div
       className={cn(
-        'pointer-events-none absolute inset-0 overflow-hidden',
+        "pointer-events-none absolute inset-0 overflow-hidden",
         className,
       )}
     >

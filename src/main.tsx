@@ -1,31 +1,29 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "@/styles/index.css";
-import { AppRoutes } from "@/routes";
 import { ThemeProvider } from "@/shared/utils/ThemeContext";
 import { BrowserRouter } from "react-router-dom";
-
-// Criar o client antes do createRoot:
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-      retry: 1,
-    },
-  },
-});
+import { AuthProvider } from "@/features/auth/hooks/AuthContext";
+import { AppBootstrap } from "@/components/bootstrap/AppBootstrap";
+import { AppRoutes } from "@/routes";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider>
-        <div className="flex min-h-screen w-full bg-bg text-text transition-colors duration-300">
-          <BrowserRouter>
-            <AppRoutes />
-          </BrowserRouter>
-        </div>
-      </ThemeProvider>
-    </QueryClientProvider>
-  </StrictMode>,
+    <ThemeProvider>
+      <div className="flex min-h-screen w-full bg-bg text-text transition-colors duration-300">
+        <BrowserRouter>
+          {/*
+           * AuthProvider encapsula todo o estado de autenticação.
+           * AppBootstrap bloqueia a renderização das rotas até que
+           * o bootstrap (verificação da sessão) termine.
+           */}
+          <AuthProvider>
+            <AppBootstrap>
+              <AppRoutes />
+            </AppBootstrap>
+          </AuthProvider>
+        </BrowserRouter>
+      </div>
+    </ThemeProvider>
+  </StrictMode>
 );

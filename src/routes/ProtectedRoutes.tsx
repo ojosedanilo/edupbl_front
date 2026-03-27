@@ -1,22 +1,19 @@
-import { Navigate, Outlet } from 'react-router-dom';
-import { useCurrentUser } from '@/features/auth/hooks/useAuth';
-import { GradientBackdrop } from '@/components/layout/GradientBackdrop';
-
 /**
+ * ProtectedRoutes
+ *
  * Wrapper para rotas privadas.
- * Redireciona para /login se o usuário não estiver autenticado.
+ * - Se autenticado: renderiza a rota normalmente.
+ * - Se não autenticado: redireciona para /login.
+ *
+ * O isBootstrapping já foi resolvido pelo AppBootstrap antes de
+ * qualquer rota ser renderizada, então não é necessário checar aqui.
  */
-export default function ProtectedRoutes() {
-  const { data: user, isLoading } = useCurrentUser();
 
-  if (isLoading) {
-    return (
-      <div className="relative flex min-h-screen items-center justify-center">
-        <GradientBackdrop />
-        <p className="relative z-10 text-white text-lg font-medium">Carregando…</p>
-      </div>
-    );
-  }
+import { Navigate, Outlet } from "react-router-dom";
+import { useCurrentUser } from "@/features/auth/hooks/useAuth";
+
+export default function ProtectedRoutes() {
+  const { user } = useCurrentUser();
 
   if (!user) return <Navigate to="/login" replace />;
 

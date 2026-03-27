@@ -1,18 +1,41 @@
+/**
+ * SmartRedirect
+ *
+ * Controla o comportamento da rota "/" para usuários logados:
+ *
+ * - PRIMEIRA vez que o browser abre a página ("cold navigation"):
+ *   redireciona para /home. O flag é gravado no sessionStorage para
+ *   que recarregamentos ou navegações posteriores dentro da mesma aba
+ *   não repitam o redirect.
+ *
+ * - Demais acessos dentro da mesma sessão de aba (navegação interna,
+ *   F5, etc.): renderiza "/" normalmente, permitindo que o usuário
+ *   logado visite a landing page.
+ *
+ * O sessionStorage é por aba e é limpo quando a aba é fechada, então
+ * ao abrir o site em uma aba nova o redirect acontece novamente.
+ */
+
 import { Navigate, Outlet } from "react-router-dom";
 import { useCurrentUser } from "@/features/auth/hooks/useAuth";
 
-/**
- * Redireciona usuários logados para /home ao acessar a landing page.
- * O redirect NÃO usa `replace`, então o botão "Voltar" do browser
- * continua funcionando para retornar à landing.
- */
+const SESSION_KEY = "landing_visited";
+
 export default function SmartRedirect() {
-  const { data: user, isLoading } = useCurrentUser();
+  const { user } = useCurrentUser();
 
-  // Enquanto verifica, renderiza a landing normalmente para evitar flash
-  if (isLoading) return <Outlet />;
+  if (user) {
+    const alreadyVisited = sessionStorage.getItem(SESSION_KEY) === "true";
 
-  if (user) return <Navigate to="/home" />;
+    if (!alreadyVisited) {
+      // Marca que a landing já foi "visitada" nesta sessão de aba.
+      // O redirect usa `replace` para não poluir o histórico:
+      // o botão Voltar do browser levará o usuário para onde ele
+      // estava antes de abrir o site, não para um loop de /→/home.
+      sessionStorage.setItem(SESSION_KEY, "true");
+      return <Navigate to="/home" replace />;
+    }
+  }
 
   return <Outlet />;
 }
