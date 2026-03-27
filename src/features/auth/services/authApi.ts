@@ -1,11 +1,7 @@
 import { api, setAccessToken, clearAccessToken } from "@/shared/services/api";
 import type { LoginCredentials } from "../models/LoginCredentials";
 import type { TokenResponse } from "../models/TokenResponse";
-import type {
-  AxiosError,
-  AxiosRequestConfig,
-  AxiosResponse,
-} from 'axios';
+import type { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
 
 type RetriableAxiosRequestConfig = AxiosRequestConfig & {
   _retry?: boolean;
@@ -50,12 +46,25 @@ export const authApi = {
 // Interceptor de resposta - trata erros
 // Quando o access token expirar, precisa fazer refresh automaticamente
 api.interceptors.response.use(
-  (response: AxiosResponse) => response, // Se sucesso, passa direto
+  (response: AxiosResponse) => response,
   async (error: AxiosError) => {
-    const originalRequest = error.config as RetriableAxiosRequestConfig | undefined;
+    const originalRequest = error.config as
+      | RetriableAxiosRequestConfig
+      | undefined;
 
-    // Se erro 401 e ainda não tentou refresh
-    if (error.response?.status === 401 && originalRequest && !originalRequest._retry) {
+    const isRefreshEndpoint = originalRequest?.url?.includes(
+      "/auth/refresh_token",
+    );
+    const isLoginEndpoint = originalRequest?.url?.includes("/auth/token");
+
+    // Se erro 401 e ainda não tentou refresh, e não é o próprio refresh/login falhando
+    if (
+      error.response?.status === 401 &&
+      originalRequest &&
+      !originalRequest._retry &&
+      !isRefreshEndpoint &&
+      !isLoginEndpoint
+    ) {
       originalRequest._retry = true;
 
       try {
@@ -64,13 +73,17 @@ api.interceptors.response.use(
         setAccessToken(data.access_token);
 
         // Refaz a requisição original com novo token
-        (originalRequest.headers as any).Authorization = `Bearer ${data.access_token}`;
+        (originalRequest.headers as any).Authorization =
+          `Bearer ${data.access_token}`;
         return api(originalRequest);
-      } catch (refreshError) {
+      } catch {
         // Refresh falhou - usuário precisa fazer login novamente
         clearAccessToken();
-        window.location.href = "/login";
-        return Promise.reject(refreshError);
+        // Só redireciona se não estiver já na página de login
+        if (!window.location.pathname.includes("/login")) {
+          window.location.href = "/login";
+        }
+        return Promise.reject(error);
       }
     }
 

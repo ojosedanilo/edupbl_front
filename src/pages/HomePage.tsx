@@ -19,19 +19,11 @@ function roleLabel(role: string): string {
 }
 
 export default function HomePage() {
-  const { data: user, isLoading } = useCurrentUser();
+  // user é garantido pelo ProtectedRoutes — não é null aqui
+  const { data: user } = useCurrentUser();
   const logout = useLogout();
 
-  if (isLoading || !user) {
-    return (
-      <div className="relative flex min-h-screen items-center justify-center">
-        <GradientBackdrop />
-        <p className="relative z-10 text-white">Carregando…</p>
-      </div>
-    );
-  }
-
-  const showCoordination = user.role === "coordinator" || user.role === "admin";
+  const showCoordination = user?.role === "coordinator" || user?.role === "admin";
 
   return (
     <div className="relative min-h-screen">
@@ -42,10 +34,10 @@ export default function HomePage() {
             <img src={LogoPBL} alt="" className="size-14 object-contain" />
             <div>
               <p className="text-sm font-medium text-white/80">
-                {roleLabel(user.role)}
+                {roleLabel(user?.role ?? '')}
               </p>
               <h1 className="text-2xl font-bold text-white md:text-3xl">
-                Seja bem-vindo(a), {user.first_name}!
+                Seja bem-vindo(a), {user?.first_name}!
               </h1>
             </div>
           </div>

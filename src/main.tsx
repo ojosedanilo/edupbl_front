@@ -1,9 +1,9 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import '@/styles/index.css'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import "@/styles/index.css";
 import { AppRoutes } from "@/routes";
-import { ThemeProvider } from '@/shared/utils/ThemeContext'
+import { ThemeProvider } from "@/shared/utils/ThemeContext";
 import { BrowserRouter } from "react-router-dom";
 
 // Criar o client antes do createRoot:
@@ -16,7 +16,7 @@ const queryClient = new QueryClient({
   },
 });
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
@@ -28,4 +28,4 @@ createRoot(document.getElementById('root')!).render(
       </ThemeProvider>
     </QueryClientProvider>
   </StrictMode>,
-)
+);

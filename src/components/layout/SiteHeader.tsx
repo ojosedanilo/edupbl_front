@@ -1,16 +1,15 @@
 import { Link } from "react-router-dom";
 import LogoPBL from "@/assets/logo_pbl.svg";
 import { cn } from "@/components/utils/cn";
+import { useCurrentUser } from "@/features/auth/hooks/useAuth";
 
 type SiteHeaderProps = {
-  loginHref?: string;
   className?: string;
 };
 
-export function SiteHeader({
-  loginHref = "/login",
-  className,
-}: SiteHeaderProps) {
+export function SiteHeader({ className }: SiteHeaderProps) {
+  const { data: user } = useCurrentUser();
+
   return (
     <header
       className={cn(
@@ -30,10 +29,10 @@ export function SiteHeader({
         </div>
       </div>
       <Link
-        to={loginHref}
+        to={user ? "/home" : "/login"}
         className="shrink-0 rounded-full bg-accent px-6 py-2 text-sm font-semibold text-white transition-all hover:opacity-90 md:text-base"
       >
-        Entrar
+        {user ? "Ir para o app" : "Entrar"}
       </Link>
     </header>
   );

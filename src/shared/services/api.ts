@@ -1,5 +1,5 @@
 // src/shared/services/api.ts
-import axios from 'axios';
+import axios from "axios";
 
 let accessToken: string | null = null;
 
@@ -21,13 +21,15 @@ export const api = axios.create({
 // Interceptor adiciona access token
 api.interceptors.request.use((config) => {
   const token = getAccessToken();
-  
+
   // Não adiciona em endpoints públicos
-  const isPublic = config.url?.includes('/auth/token');
-  
+  const isPublic =
+    config.url?.includes("/auth/token") ||
+    config.url?.includes("/auth/refresh_token");
+
   if (token && !isPublic) {
     config.headers.Authorization = `Bearer ${token}`;
   }
-  
+
   return config;
 });

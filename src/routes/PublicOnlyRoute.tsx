@@ -3,10 +3,11 @@ import { useCurrentUser } from '@/features/auth/hooks/useAuth';
 import { GradientBackdrop } from '@/components/layout/GradientBackdrop';
 
 /**
- * Wrapper para rotas privadas.
- * Redireciona para /login se o usuário não estiver autenticado.
+ * Wrapper para rotas públicas de auth (login, signup).
+ * Se o usuário já estiver logado, redireciona para /home.
+ * Enquanto verifica, exibe tela de carregamento estilizada.
  */
-export default function ProtectedRoutes() {
+export default function PublicOnlyRoute() {
   const { data: user, isLoading } = useCurrentUser();
 
   if (isLoading) {
@@ -18,7 +19,7 @@ export default function ProtectedRoutes() {
     );
   }
 
-  if (!user) return <Navigate to="/login" replace />;
+  if (user) return <Navigate to="/home" replace />;
 
   return <Outlet />;
 }
