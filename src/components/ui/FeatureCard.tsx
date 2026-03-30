@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "@/utils/cn";
 
-type DashboardActionCardProps = {
+type FeatureCardProps = {
   title: string;
   description?: string;
   to: string;
@@ -10,13 +10,13 @@ type DashboardActionCardProps = {
   className?: string;
 };
 
-export function DashboardActionCard({
+export function FeatureCard({
   title,
   description,
   to,
   icon,
   className,
-}: DashboardActionCardProps) {
+}: FeatureCardProps) {
   return (
     <Link
       to={to}

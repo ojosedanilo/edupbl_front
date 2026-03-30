@@ -14,11 +14,11 @@ export default function SignupPage() {
 
   return (
     <div className="flex min-h-screen flex-col lg:flex-row lg:overflow-hidden">
-      <div className="flex flex-[1_1_45%] flex-col items-center justify-center gap-6 bg-gradient-to-r from-[#295230] to-[#ffae00] px-8 py-16 text-center text-white opacity-95 lg:py-24">
+      <div className="flex flex-[1_1_45%] flex-col items-center justify-center gap-6 bg-gradient-to-r from-primary to-accent px-8 py-16 text-center text-text-reverse opacity-95 lg:py-24">
         <p className="max-w-xl text-3xl font-bold md:text-5xl">
           Participe do EduPBL
         </p>
-        <p className="max-w-md text-lg text-white/90">
+        <p className="max-w-md text-lg text-text-reverse/90">
           Ambiente digital da escola para ocorrências, comunicação e gestão
           pedagógica.
         </p>

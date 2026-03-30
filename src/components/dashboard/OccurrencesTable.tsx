@@ -27,14 +27,14 @@ export function OccurrencesTable({
   return (
     <div
       className={cn(
-        "overflow-hidden rounded-[20px] border border-white/40 bg-white/10 backdrop-blur-sm",
+        "overflow-hidden rounded-[20px] border border-text-reverse/40 bg-text-reverse/10 backdrop-blur-sm",
         className,
       )}
     >
       <div
         className={cn(
-          "grid grid-cols-[1.2fr_1.4fr_0.9fr_1fr_0.9fr] gap-0 border-b border-white/30",
-          "bg-gradient-to-r from-transparent via-white/5 to-transparent px-4 py-3 text-sm font-medium text-white md:text-base",
+          "grid grid-cols-[1.2fr_1.4fr_0.9fr_1fr_0.9fr] gap-0 border-b border-text-reverse/30",
+          "bg-gradient-to-r from-transparent via-text-reverse/5 to-transparent px-4 py-3 text-sm font-medium text-text-reverse md:text-base",
         )}
       >
         {columns.map((c) => (
@@ -43,11 +43,11 @@ export function OccurrencesTable({
           </div>
         ))}
       </div>
-      <div className="divide-y divide-white/20">
+      <div className="divide-y divide-text-reverse/20">
         {placeholderRows.map((row, idx) => (
           <div
             key={idx}
-            className="grid grid-cols-[1.2fr_1.4fr_0.9fr_1fr_0.9fr] px-4 py-4 text-sm text-white/95 md:text-base"
+            className="grid grid-cols-[1.2fr_1.4fr_0.9fr_1fr_0.9fr] px-4 py-4 text-sm text-text-reverse/95 md:text-base"
           >
             {columns.map((c) => (
               <div key={c} className="truncate px-2">

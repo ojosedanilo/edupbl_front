@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
-import LogoPBL from "@/assets/logo_pbl.svg";
-import { DashboardActionCard } from "@/components/ui/DashboardActionCard";
-import { GradientBackdrop } from "@/components/layout/GradientBackdrop";
 import { useCurrentUser, useLogout } from "@/features/auth/hooks/useAuth";
+import { FeatureCard } from "@/components/ui/FeatureCard";
+import { GradientBackdrop } from "@/components/layout/GradientBackdrop";
 import { Button } from "@/components/ui/Button";
+import LogoPBL from "@/assets/logo_pbl.svg";
+// Exemplo de ícones — substitua pela lib que preferir (ex: lucide-react, heroicons)
+// import { AlertCircle, Users, BookOpen } from "lucide-react";
 
 function roleLabel(role: string): string {
   const map: Record<string, string> = {
@@ -18,7 +19,6 @@ function roleLabel(role: string): string {
 }
 
 export default function HomePage() {
-  // user é garantido pelo ProtectedRoutes — não é null aqui
   const { user } = useCurrentUser();
   const { mutate: logout, isPending: isLoggingOut } = useLogout();
 
@@ -28,15 +28,17 @@ export default function HomePage() {
   return (
     <div className="relative min-h-screen w-full">
       <GradientBackdrop />
+
       <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col gap-10 px-6 py-10">
+        {/* Cabeçalho */}
         <header className="flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <img src={LogoPBL} alt="" className="size-14 object-contain" />
             <div>
-              <p className="text-sm font-medium text-white/80">
+              <p className="text-sm font-medium text-text-reverse/80">
                 {roleLabel(user?.role ?? "")}
               </p>
-              <h1 className="text-2xl font-bold text-white md:text-3xl">
+              <h1 className="text-2xl font-bold text-text-reverse md:text-3xl">
                 Seja bem-vindo(a), {user?.first_name}!
               </h1>
             </div>
@@ -51,31 +53,46 @@ export default function HomePage() {
           </Button>
         </header>
 
-        <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <DashboardActionCard
-            title="Ocorrências"
-            description="Visualize e gerencie ocorrências disciplinares."
-            to="/occurrences"
-          />
-          {showCoordination ? (
-            <DashboardActionCard
-              title="Painel da coordenação"
-              description="Cadastros, listas e relatórios (em construção)."
-              to="/coordenacao"
+        {/* Grid de features
+         *
+         * Cada card navega diretamente para a página da feature.
+         * Dentro de cada página, há tabs "Listar | Criar" — sem nível extra de clique.
+         *
+         * Para adicionar uma nova feature:
+         *   1. Crie src/pages/MinhaFeaturePage.tsx usando <FeatureLayout>
+         *   2. Adicione a rota em src/routes/index.tsx
+         *   3. Adicione o card abaixo
+         */}
+        <section>
+          <h2 className="mb-4 text-lg font-semibold text-text-reverse/70">
+            O que você quer fazer?
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <FeatureCard
+              title="Ocorrências"
+              description="Visualize, registre e gerencie ocorrências disciplinares."
+              to="/ocorrencias"
+              // icon={<AlertCircle className="size-6" />}
             />
-          ) : null}
-          <DashboardActionCard
-            title="Página inicial pública"
-            description="Voltar ao site institucional."
-            to="/"
-          />
-        </section>
 
-        <p className="text-center text-sm text-white/70">
-          <Link to="/" className="underline">
-            Ir para landing
-          </Link>
-        </p>
+            {showCoordination && (
+              <>
+                <FeatureCard
+                  title="Usuários"
+                  description="Gerencie alunos, professores e responsáveis."
+                  to="/usuarios"
+                  // icon={<Users className="size-6" />}
+                />
+                <FeatureCard
+                  title="Turmas"
+                  description="Organize e acompanhe as turmas da escola."
+                  to="/turmas"
+                  // icon={<BookOpen className="size-6" />}
+                />
+              </>
+            )}
+          </div>
+        </section>
       </div>
     </div>
   );

@@ -12,14 +12,15 @@
 
   --color-text: var(--text);
   --color-text-muted: var(--text-muted);
+  --color-text-reverse: var(--text-reverse);
 
   --color-danger: var(--danger);
 }
 
 :root {
   --color-primary: #166534;
-  --color-accent: #C9A227;
-  --color-accent: #C9A227;
+  --color-accent: #c9a227;
+  --color-accent: #c9a227;
 }
 
 @layer theme {
@@ -36,6 +37,7 @@
 
     --text: #111827;
     --text-muted: #6b7280;
+    --text-reverse: #f3f4f6;
 
     --danger: #dc2626;
   }
@@ -53,13 +55,16 @@
 
     --text: #f3f4f6;
     --text-muted: #9ca3af;
+    --text-reverse: #111827;
 
     --danger: #ef4444;
   }
 }
 
 @layer base {
-  html, body, #root {
+  html,
+  body,
+  #root {
     min-height: 100%;
     width: 100%;
     margin: 0;

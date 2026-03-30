@@ -18,7 +18,7 @@ export function FilterTabs({ value, onChange, className }: FilterTabsProps) {
   return (
     <div
       className={cn(
-        "flex flex-wrap items-center gap-6 text-lg text-white md:gap-10 md:text-2xl",
+        "flex flex-wrap items-center gap-6 text-lg text-text-reverse md:gap-10 md:text-2xl",
         className,
       )}
       role="tablist"
@@ -42,7 +42,7 @@ export function FilterTabs({ value, onChange, className }: FilterTabsProps) {
         </button>
       ))}
       <span
-        className="ml-auto hidden font-semibold text-white/90 md:inline"
+        className="ml-auto hidden font-semibold text-text-reverse/90 md:inline"
         aria-hidden
       >
         Nova ocorrencia

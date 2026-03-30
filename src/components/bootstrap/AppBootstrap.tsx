@@ -24,7 +24,7 @@ export function AppBootstrap({ children }: AppBootstrapProps) {
     return (
       <div className="relative flex min-h-screen items-center justify-center">
         <GradientBackdrop />
-        <p className="relative z-10 text-white text-lg font-medium">
+        <p className="relative z-10 text-text-reverse text-lg font-medium">
           Carregando…
         </p>
       </div>
