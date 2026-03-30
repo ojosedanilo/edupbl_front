@@ -13,9 +13,9 @@ createRoot(document.getElementById("root")!).render(
       <div className="flex min-h-screen w-full bg-bg text-text transition-colors duration-300">
         <BrowserRouter>
           {/*
-           * AuthProvider encapsula todo o estado de autenticação.
-           * AppBootstrap bloqueia a renderização das rotas até que
-           * o bootstrap (verificação da sessão) termine.
+           * AuthProvider instancia o QueryClient e o QueryClientProvider.
+           * AppBootstrap espera a query ["me"] terminar antes de renderizar
+           * as rotas, evitando redirects prematuros nos guards.
            */}
           <AuthProvider>
             <AppBootstrap>

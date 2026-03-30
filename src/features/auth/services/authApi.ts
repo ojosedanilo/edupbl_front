@@ -52,7 +52,10 @@ export const authApi = {
    * Armazena o novo access_token em memória.
    */
   refreshToken: async (): Promise<TokenResponse> => {
-    const { data } = await api.post<TokenResponse>("/auth/refresh_token");
+    const { data } = await api.post<TokenResponse>("/auth/refresh_token", {
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      withCredentials: true,
+    });
     setAccessToken(data.access_token);
     return data;
   },
@@ -89,7 +92,10 @@ api.interceptors.response.use(
       originalRequest._retry = true;
 
       try {
-        const { data } = await api.post<TokenResponse>("/auth/refresh_token");
+        const { data } = await api.post<TokenResponse>("/auth/refresh_token", {
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          withCredentials: true,
+        });
         setAccessToken(data.access_token);
 
         // Repete a requisição original com o novo token

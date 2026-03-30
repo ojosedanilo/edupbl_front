@@ -2,8 +2,7 @@ import { Link } from "react-router-dom";
 import LogoPBL from "@/assets/logo_pbl.svg";
 import { DashboardActionCard } from "@/components/ui/DashboardActionCard";
 import { GradientBackdrop } from "@/components/layout/GradientBackdrop";
-import { useCurrentUser } from "@/features/auth/hooks/useAuth";
-import { useLogout } from "@/features/auth/hooks/useAuth";
+import { useCurrentUser, useLogout } from "@/features/auth/hooks/useAuth";
 import { Button } from "@/components/ui/Button";
 
 function roleLabel(role: string): string {
@@ -20,8 +19,8 @@ function roleLabel(role: string): string {
 
 export default function HomePage() {
   // user é garantido pelo ProtectedRoutes — não é null aqui
-  const { data: user } = useCurrentUser();
-  const logout = useLogout();
+  const { user } = useCurrentUser();
+  const { mutate: logout, isPending: isLoggingOut } = useLogout();
 
   const showCoordination =
     user?.role === "coordinator" || user?.role === "admin";
@@ -45,10 +44,10 @@ export default function HomePage() {
           <Button
             type="button"
             variant="secondary"
-            onClick={() => logout.mutate()}
-            disabled={logout.isPending}
+            onClick={() => logout()}
+            disabled={isLoggingOut}
           >
-            Sair
+            {isLoggingOut ? "Saindo…" : "Sair"}
           </Button>
         </header>
 

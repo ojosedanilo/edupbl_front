@@ -1,15 +1,16 @@
 /**
  * AppBootstrap
  *
- * Bloqueia a renderização das rotas até que o bootstrap de autenticação
- * termine (seja com sucesso ou com falha).
+ * Bloqueia a renderização das rotas até que a query inicial de ["me"]
+ * termine (seja com usuário autenticado ou null).
  *
- * Isso evita que ProtectedRoutes ou PublicOnlyRoute tomem decisões de
- * redirect baseadas em `user = null` antes que a sessão seja verificada.
+ * `isBootstrapping` vem de `isLoading` do useQuery(["me"]), que é true
+ * apenas na primeira carga — quando não há dado em cache.  Após isso,
+ * ProtectedRoutes e PublicOnlyRoute podem tomar decisões seguras.
  */
 
 import type { ReactNode } from "react";
-import { useAuthContext } from "@/features/auth/hooks/AuthContext";
+import { useCurrentUser } from "@/features/auth/hooks/useAuth";
 import { GradientBackdrop } from "@/components/layout/GradientBackdrop";
 
 type AppBootstrapProps = {
@@ -17,7 +18,7 @@ type AppBootstrapProps = {
 };
 
 export function AppBootstrap({ children }: AppBootstrapProps) {
-  const { isBootstrapping } = useAuthContext();
+  const { isBootstrapping } = useCurrentUser();
 
   if (isBootstrapping) {
     return (

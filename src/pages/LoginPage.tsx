@@ -9,7 +9,7 @@ import { useLogin } from "@/features/auth/hooks/useAuth";
 
 export default function LoginPage() {
   const navigate = useNavigate();
-  const login = useLogin();
+  const { mutateAsync: login, isPending } = useLogin();
   const [error, setError] = useState<string | null>(null);
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
@@ -21,7 +21,7 @@ export default function LoginPage() {
     const password = String(form.get("password") ?? "");
 
     try {
-      await login.login({ username: email, password });
+      await login({ username: email, password });
       navigate("/home", { replace: true });
     } catch {
       setError("E-mail ou senha incorretos.");
@@ -92,9 +92,9 @@ export default function LoginPage() {
               <Button
                 type="submit"
                 className="h-14 w-full max-w-xs"
-                disabled={login.isLoading}
+                disabled={isPending}
               >
-                {login.isLoading ? "Entrando…" : "Entrar"}
+                {isPending ? "Entrando…" : "Entrar"}
               </Button>
             </form>
 

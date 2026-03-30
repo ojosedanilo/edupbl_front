@@ -8,7 +8,7 @@ type SiteHeaderProps = {
 };
 
 export function SiteHeader({ className }: SiteHeaderProps) {
-  const { data: user } = useCurrentUser();
+  const { user } = useCurrentUser();
 
   return (
     <header
