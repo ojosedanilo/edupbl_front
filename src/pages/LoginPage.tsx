@@ -35,7 +35,7 @@ function LoginBrandPanel() {
 
       {/* Conteúdo sobre o fundo */}
       <div className="relative z-10 flex flex-col items-center gap-6 text-center text-text">
-        <p className="max-w-2xl text-3xl font-bold leading-tight md:text-4xl lg:text-5xl lg:leading-none">
+        <p className="max-w-2xl text-light text-3xl font-bold leading-tight md:text-4xl lg:text-5xl lg:leading-none">
           Seja bem-vindo(a) ao EduPBL!
         </p>
         <div className="relative size-48 md:size-64 lg:size-[300px]">
@@ -80,7 +80,7 @@ export default function LoginPage() {
       <div className="relative z-10 w-full flex items-center justify-center p-6">
         <div className="flex w-full max-w-6xl overflow-hidden rounded-[30px] shadow-2xl flex-col lg:flex-row">
           {/* Painel esquerdo com posição relativa para os elementos absolutos */}
-          <div className="relative flex flex-1 flex-col items-center justify-center px-8 py-16 backdrop-blur-md bg-text/5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1),0_10px_40px_rgba(0,0,0,0.3)]">
+          <div className="relative flex flex-1 flex-col items-center justify-center px-8 py-16 backdrop-blur-md bg-surface/5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1),0_10px_40px_rgba(0,0,0,0.3)]">
             <LoginBrandPanel />
           </div>
 
@@ -125,7 +125,10 @@ export default function LoginPage() {
 
             <p className="text-center text-text-muted">
               Não tem uma conta?{" "}
-              <Link to="/cadastrar" className="font-semibold text-accent underline">
+              <Link
+                to="/cadastrar"
+                className="font-semibold text-accent underline"
+              >
                 Crie uma.
               </Link>
             </p>

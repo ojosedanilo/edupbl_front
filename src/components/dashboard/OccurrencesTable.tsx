@@ -27,7 +27,7 @@ export function OccurrencesTable({
   return (
     <div
       className={cn(
-        "overflow-hidden rounded-[20px] border border-text/40 bg-text/10 backdrop-blur-sm",
+        "overflow-hidden rounded-[20px] border border-text/40 bg-surface/10 backdrop-blur-sm",
         className,
       )}
     >

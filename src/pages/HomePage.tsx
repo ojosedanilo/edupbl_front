@@ -50,16 +50,15 @@ export default function HomePage() {
       <GradientBackdrop />
 
       <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col gap-10 px-6 py-10">
-
         {/* Cabeçalho: logo + saudação + botão de saída */}
         <header className="flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <img src={LogoPBL} alt="" className="size-14 object-contain" />
             <div>
-              <p className="text-sm font-medium text-text/80">
+              <p className="text-sm font-medium text-light/90">
                 {roleLabel(user?.role ?? "")}
               </p>
-              <h1 className="text-2xl font-bold text-text md:text-3xl">
+              <h1 className="text-2xl font-bold text-light md:text-3xl">
                 Seja bem-vindo(a), {user?.first_name}!
               </h1>
             </div>
@@ -77,7 +76,7 @@ export default function HomePage() {
 
         {/* Grid de features */}
         <section>
-          <h2 className="mb-4 text-lg font-semibold text-text/70">
+          <h2 className="mb-4 text-lg font-semibold text-light/90">
             O que você quer fazer?
           </h2>
 

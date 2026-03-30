@@ -15,6 +15,7 @@
   --color-text: var(--text);
   --color-text-muted: var(--text-muted);
   --color-text-inverse: var(--text-inverse);
+  --color-light: var(--light);
 
   --color-danger: var(--danger);
 }
@@ -40,8 +41,9 @@
     --border: #e5e7eb;
 
     --text: #111827;
-    --text-muted: #6b7280;
     --text-inverse: #f3f4f6;
+    --light: #f3f4f6;
+    --text-muted: #6b7280;
 
     --danger: #dc2626;
   }
@@ -60,8 +62,9 @@
     --border: #232a26;
 
     --text: #f3f4f6;
-    --text-muted: #9ca3af;
     --text-inverse: #111827;
+    --light: #f3f4f6;
+    --text-muted: #9ca3af;
 
     --danger: #ef4444;
   }

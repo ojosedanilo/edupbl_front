@@ -10,11 +10,15 @@ export default function LandingPage() {
         <SiteHeader />
         <main className="flex flex-1 min-h-0 max-h-screen w-full flex-col items-center justify-center gap-8 px-6 py-8 lg:px-12 lg:flex-row lg:items-center lg:gap-12 xl:gap-16">
           <section className="w-full max-w-2xl text-center text-text lg:text-left">
-            <h1 className="mb-4 text-5xl font-bold leading-tight tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
-              <span>Edu </span>
-              <span className="text-accent">PBL</span>
+            <h1 className="mb-4 text-light text-5xl font-bold leading-tight tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
+              <span className="text-light [text-shadow:0px_0px_3px_var(--color-primary)]">
+                Edu
+              </span>
+              <span className="text-primary [text-shadow:0px_0px_3px_var(--color-light)]">
+                PBL
+              </span>
             </h1>
-            <p className="text-lg leading-relaxed text-text/95 sm:text-xl md:text-2xl">
+            <p className="text-lg leading-relaxed text-light/90 sm:text-xl md:text-2xl">
               O melhor aplicativo para docentes
             </p>
           </section>

@@ -52,7 +52,7 @@ export function FeatureLayout({
         <header className="flex flex-wrap items-center gap-4">
           <Link
             to="/inicio"
-            className="rounded-full bg-text/10 px-4 py-2 text-sm font-medium text-text backdrop-blur-sm transition hover:bg-text/20"
+            className="rounded-full bg-surface/10 px-4 py-2 text-sm font-medium text-text backdrop-blur-sm transition hover:bg-surface/20"
             aria-label="Voltar ao início"
           >
             ← Voltar
@@ -75,10 +75,10 @@ export function FeatureLayout({
                 aria-selected={activeTab === tab.id}
                 onClick={() => onTabChange?.(tab.id)}
                 className={cn(
-                  "inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-semibold transition",
+                  "inline-flex items-center gap-2 rounded-full px-5 py-2 bg-bg text-text text-sm font-semibold transition",
                   activeTab === tab.id
-                    ? "bg-text text-primary shadow-md"
-                    : "bg-text/10 text-text backdrop-blur-sm hover:bg-text/20",
+                    ? "bg-surface text-primary shadow-md"
+                    : "bg-surface/60 text-text backdrop-blur-sm hover:bg-surface/80",
                 )}
               >
                 {tab.icon}

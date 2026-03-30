@@ -45,7 +45,7 @@ export function LandingPhotoCollage() {
         src={figmaAssets.collage1}
         alt="Ambiente escolar"
         heightClass="h-[180px] md:h-[240px] lg:h-[280px]"
-        tintClass="bg-text-muted/40"
+        tintClass="bg-surface-muted/40"
       />
       <div className="flex flex-col items-end gap-4 md:gap-6">
         <CollageColumn
@@ -65,7 +65,7 @@ export function LandingPhotoCollage() {
         src={figmaAssets.collage4}
         alt="Comunidade escolar"
         heightClass="h-[180px] md:h-[240px] lg:h-[300px]"
-        tintClass="bg-text-muted/50"
+        tintClass="bg-surface-muted/50"
       />
     </div>
   );
