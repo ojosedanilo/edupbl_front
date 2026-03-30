@@ -9,12 +9,12 @@ export default function LandingPage() {
       <div className="relative z-10 flex flex-1 w-full flex-col">
         <SiteHeader />
         <main className="flex flex-1 min-h-0 max-h-screen w-full flex-col items-center justify-center gap-8 px-6 py-8 lg:px-12 lg:flex-row lg:items-center lg:gap-12 xl:gap-16">
-          <section className="w-full max-w-2xl text-center text-text-reverse lg:text-left">
+          <section className="w-full max-w-2xl text-center text-text lg:text-left">
             <h1 className="mb-4 text-5xl font-bold leading-tight tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
               <span>Edu </span>
               <span className="text-accent">PBL</span>
             </h1>
-            <p className="text-lg leading-relaxed text-text-reverse/95 sm:text-xl md:text-2xl">
+            <p className="text-lg leading-relaxed text-text/95 sm:text-xl md:text-2xl">
               O melhor aplicativo para docentes
             </p>
           </section>

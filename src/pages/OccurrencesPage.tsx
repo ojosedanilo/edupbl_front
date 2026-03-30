@@ -29,9 +29,9 @@ export default function OccurrencesPage() {
       )}
 
       {activeTab === "criar" && (
-        <div className="rounded-2xl border border-text-reverse/20 bg-text-reverse/10 p-8 text-text-reverse backdrop-blur-sm">
+        <div className="rounded-2xl border border-text/20 bg-text/10 p-8 text-text backdrop-blur-sm">
           {/* Futuramente: <OccurrenceForm /> */}
-          <p className="text-text-reverse/70">
+          <p className="text-text/70">
             Formulário de nova ocorrência (em construção).
           </p>
         </div>

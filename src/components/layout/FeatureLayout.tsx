@@ -52,14 +52,12 @@ export function FeatureLayout({
         <header className="flex flex-wrap items-center gap-4">
           <Link
             to="/inicio"
-            className="rounded-full bg-text-reverse/10 px-4 py-2 text-sm font-medium text-text-reverse backdrop-blur-sm transition hover:bg-text-reverse/20"
+            className="rounded-full bg-text/10 px-4 py-2 text-sm font-medium text-text backdrop-blur-sm transition hover:bg-text/20"
             aria-label="Voltar ao início"
           >
             ← Voltar
           </Link>
-          <h1 className="text-2xl font-bold text-text-reverse md:text-3xl">
-            {title}
-          </h1>
+          <h1 className="text-2xl font-bold text-text md:text-3xl">{title}</h1>
         </header>
 
         {/* Tabs de ação */}
@@ -79,8 +77,8 @@ export function FeatureLayout({
                 className={cn(
                   "inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-semibold transition",
                   activeTab === tab.id
-                    ? "bg-text-reverse text-primary shadow-md"
-                    : "bg-text-reverse/10 text-text-reverse backdrop-blur-sm hover:bg-text-reverse/20",
+                    ? "bg-text text-primary shadow-md"
+                    : "bg-text/10 text-text backdrop-blur-sm hover:bg-text/20",
                 )}
               >
                 {tab.icon}

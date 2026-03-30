@@ -22,7 +22,7 @@ function CollageColumn({ src, alt, heightClass, tintClass }: ColumnProps) {
         className={cn("pointer-events-none absolute inset-0", tintClass)}
         aria-hidden
       />
-      <div className="relative flex min-h-0 flex-1 items-end justify-center overflow-hidden bg-gradient-to-br from-primary/40 to-accent/40">
+      <div className="relative flex min-h-0 flex-1 items-end justify-center overflow-hidden bg-gradient-to-br from-bg-primary/40 to-bg-accent/40">
         <FigmaImage
           src={src}
           alt={alt}

@@ -37,13 +37,13 @@ export default function LoginPage() {
       />
 
       {/* GRADIENTE POR CIMA */}
-      <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-accent/90" />
+      <div className="absolute inset-0 bg-gradient-to-r from-bg-primary/90 to-bg-accent/90" />
 
       {/* CONTEÚDO */}
       <div className="relative z-10 w-full flex items-center justify-center p-6">
         <div className="flex w-full max-w-6xl overflow-hidden rounded-[30px] shadow-2xl flex-col lg:flex-row">
           {/* LADO ESQUERDO */}
-          <div className="relative flex flex-1 flex-col items-center justify-center px-8 py-16 text-center text-text-reverse backdrop-blur-md bg-text-reverse/5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1),0_10px_40px_rgba(0,0,0,0.3)]">
+          <div className="relative flex flex-1 flex-col items-center justify-center px-8 py-16 text-center text-text backdrop-blur-md bg-text/5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1),0_10px_40px_rgba(0,0,0,0.3)]">
             <div className="relative z-10 flex flex-col items-center gap-6">
               <p className="max-w-2xl text-3xl font-bold leading-tight md:text-4xl lg:text-5xl lg:leading-none">
                 Seja bem-vindo(a) ao EduPBL!
@@ -91,7 +91,7 @@ export default function LoginPage() {
 
               <Button
                 type="submit"
-                className="h-14 w-full max-w-xs"
+                className="h-14 w-full max-w-xs bg-primary hover:bg-primary-hover text-text-inverse"
                 disabled={isPending}
               >
                 {isPending ? "Entrando…" : "Entrar"}

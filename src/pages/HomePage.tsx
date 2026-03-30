@@ -35,10 +35,10 @@ export default function HomePage() {
           <div className="flex items-center gap-4">
             <img src={LogoPBL} alt="" className="size-14 object-contain" />
             <div>
-              <p className="text-sm font-medium text-text-reverse/80">
+              <p className="text-sm font-medium text-text/80">
                 {roleLabel(user?.role ?? "")}
               </p>
-              <h1 className="text-2xl font-bold text-text-reverse md:text-3xl">
+              <h1 className="text-2xl font-bold text-text md:text-3xl">
                 Seja bem-vindo(a), {user?.first_name}!
               </h1>
             </div>
@@ -64,7 +64,7 @@ export default function HomePage() {
          *   3. Adicione o card abaixo
          */}
         <section>
-          <h2 className="mb-4 text-lg font-semibold text-text-reverse/70">
+          <h2 className="mb-4 text-lg font-semibold text-text/70">
             O que você quer fazer?
           </h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

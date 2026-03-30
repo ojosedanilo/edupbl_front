@@ -19,7 +19,7 @@ export function GradientBackdrop({
         className,
       )}
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-bg-primary to-bg-accent" />
       {withFigmaTexture ? (
         <FigmaImage
           src={figmaAssets.landingBackground}
