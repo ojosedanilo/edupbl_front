@@ -34,6 +34,7 @@ export const authApi = {
 
     const { data } = await api.post<TokenResponse>("/auth/token", formData, {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      withCredentials: true,
     });
 
     setAccessToken(data.access_token);
@@ -72,7 +73,7 @@ api.interceptors.response.use(
     const originalRequest = error.config as RetriableConfig | undefined;
 
     const isRefreshEndpoint = originalRequest?.url?.includes(
-      "/auth/refresh_token"
+      "/auth/refresh_token",
     );
     const isLoginEndpoint = originalRequest?.url?.includes("/auth/token");
 
@@ -103,5 +104,5 @@ api.interceptors.response.use(
     }
 
     return Promise.reject(error);
-  }
+  },
 );

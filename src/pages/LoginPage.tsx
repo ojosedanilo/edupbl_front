@@ -45,7 +45,7 @@ export default function LoginPage() {
           {/* LADO ESQUERDO */}
           <div className="relative flex flex-1 flex-col items-center justify-center px-8 py-16 text-center text-white backdrop-blur-md bg-white/5 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.1),0_10px_40px_rgba(0,0,0,0.3)]">
             <div className="relative z-10 flex flex-col items-center gap-6">
-              <p className="max-w-2xl text-3xl font-bold leading-tight md:text-5xl lg:text-[80px] lg:leading-none">
+              <p className="max-w-2xl text-3xl font-bold leading-tight md:text-4xl lg:text-5xl lg:leading-none">
                 Seja bem-vindo(a) ao EduPBL!
               </p>
 
