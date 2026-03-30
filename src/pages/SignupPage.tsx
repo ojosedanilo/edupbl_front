@@ -1,14 +1,14 @@
-import type { FormEvent } from 'react';
-import { Link } from 'react-router-dom';
-import LogoPBL from '@/assets/logo_pbl.svg';
-import { Button } from '@/components/ui/Button';
-import { TextField } from '@/components/ui/TextField';
+import type { FormEvent } from "react";
+import { Link } from "react-router-dom";
+import LogoPBL from "@/assets/logo_pbl.svg";
+import { Button } from "@/components/ui/Button";
+import { TextField } from "@/components/ui/TextField";
 
 export default function SignupPage() {
   function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     window.alert(
-      'Cadastro público ainda não está disponível. Entre em contato com a coordenação.',
+      "Cadastro público ainda não está disponível. Entre em contato com a coordenação.",
     );
   }
 
@@ -75,8 +75,8 @@ export default function SignupPage() {
           </Button>
         </form>
         <p className="text-center text-text-muted">
-          Já tem uma conta?{' '}
-          <Link to="/login" className="font-semibold text-accent underline">
+          Já tem uma conta?{" "}
+          <Link to="/entrar" className="font-semibold text-accent underline">
             Entre.
           </Link>
         </p>

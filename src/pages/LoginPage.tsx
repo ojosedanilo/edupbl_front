@@ -22,7 +22,7 @@ export default function LoginPage() {
 
     try {
       await login({ username: email, password });
-      navigate("/home", { replace: true });
+      navigate("/inicio", { replace: true });
     } catch {
       setError("E-mail ou senha incorretos.");
     }

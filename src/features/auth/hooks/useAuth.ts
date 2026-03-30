@@ -38,7 +38,11 @@ export const ME_QUERY_KEY = ["me"] as const;
  * - `isLoading`       → true em qualquer carregamento posterior
  */
 export function useCurrentUser() {
-  const { data: user, isLoading, isFetching } = useQuery<UserMe | null>({
+  const {
+    data: user,
+    isLoading,
+    isFetching,
+  } = useQuery<UserMe | null>({
     queryKey: ME_QUERY_KEY,
     queryFn: async () => {
       try {
@@ -101,7 +105,7 @@ export function useLogin() {
  *   mutate();
  *
  * Após o sucesso (ou falha), limpa o access token em memória, zera o
- * cache do usuário e redireciona para /login.
+ * cache do usuário e redireciona para /entrar.
  */
 export function useLogout() {
   const navigate = useNavigate();
@@ -114,7 +118,7 @@ export function useLogout() {
       queryClient.setQueryData<null>(ME_QUERY_KEY, null);
       // Remove todas as queries que possam ter dado de usuário
       queryClient.removeQueries({ queryKey: ME_QUERY_KEY });
-      navigate("/login", { replace: true });
+      navigate("/entrar", { replace: true });
     },
   });
 }

@@ -4,7 +4,7 @@
  * Controla o comportamento da rota "/" para usuários logados:
  *
  * - PRIMEIRA vez que o browser abre a página ("cold navigation"):
- *   redireciona para /home. O flag é gravado no sessionStorage para
+ *   redireciona para /inicio. O flag é gravado no sessionStorage para
  *   que recarregamentos ou navegações posteriores dentro da mesma aba
  *   não repitam o redirect.
  *
@@ -31,9 +31,9 @@ export default function SmartRedirect() {
       // Marca que a landing já foi "visitada" nesta sessão de aba.
       // O redirect usa `replace` para não poluir o histórico:
       // o botão Voltar do browser levará o usuário para onde ele
-      // estava antes de abrir o site, não para um loop de /→/home.
+      // estava antes de abrir o site, não para um loop de /→/inicio.
       sessionStorage.setItem(SESSION_KEY, "true");
-      return <Navigate to="/home" replace />;
+      return <Navigate to="/inicio" replace />;
     }
   }
 

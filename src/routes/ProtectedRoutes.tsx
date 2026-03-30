@@ -3,7 +3,7 @@
  *
  * Wrapper para rotas privadas.
  * - Se autenticado: renderiza a rota normalmente.
- * - Se não autenticado: redireciona para /login.
+ * - Se não autenticado: redireciona para /entrar.
  *
  * O isBootstrapping já foi resolvido pelo AppBootstrap antes de
  * qualquer rota ser renderizada, então não é necessário checar aqui.
@@ -15,7 +15,7 @@ import { useCurrentUser } from "@/features/auth/hooks/useAuth";
 export default function ProtectedRoutes() {
   const { user } = useCurrentUser();
 
-  if (!user) return <Navigate to="/login" replace />;
+  if (!user) return <Navigate to="/entrar" replace />;
 
   return <Outlet />;
 }

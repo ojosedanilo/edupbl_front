@@ -29,7 +29,7 @@ export function SiteHeader({ className }: SiteHeaderProps) {
         </div>
       </div>
       <Link
-        to={user ? "/home" : "/login"}
+        to={user ? "/inicio" : "/entrar"}
         className="shrink-0 rounded-full bg-accent px-6 py-2 text-sm font-semibold text-white transition-all hover:opacity-90 md:text-base"
       >
         {user ? "Ir para o app" : "Entrar"}
