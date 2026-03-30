@@ -24,13 +24,13 @@ export function AppRoutes() {
       {/* Rotas de auth — redireciona para /inicio se já estiver logado */}
       <Route element={<PublicOnlyRoute />}>
         <Route path="/entrar" element={<LoginPage />} />
-        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/cadastrar" element={<SignupPage />} />
       </Route>
 
       {/* Rotas que exigem login */}
       <Route element={<ProtectedRoutes />}>
         <Route path="/inicio" element={<HomePage />} />
-        <Route path="/occurrences" element={<OccurrencesPage />} />
+        <Route path="/ocorrencias" element={<OccurrencesPage />} />
       </Route>
 
       {/* Página não encontrada */}

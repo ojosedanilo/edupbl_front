@@ -101,7 +101,7 @@ export default function LoginPage() {
             <p className="text-center text-text-muted">
               Não tem uma conta?{" "}
               <Link
-                to="/signup"
+                to="/cadastrar"
                 className="font-semibold text-accent underline"
               >
                 Crie uma.
