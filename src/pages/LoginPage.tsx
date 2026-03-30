@@ -21,7 +21,7 @@ export default function LoginPage() {
     const password = String(form.get("password") ?? "");
 
     try {
-      await login.mutateAsync({ username: email, password });
+      await login.login({ username: email, password });
       navigate("/home", { replace: true });
     } catch {
       setError("E-mail ou senha incorretos.");
@@ -92,9 +92,9 @@ export default function LoginPage() {
               <Button
                 type="submit"
                 className="h-14 w-full max-w-xs"
-                disabled={login.isPending}
+                disabled={login.isLoading}
               >
-                {login.isPending ? "Entrando…" : "Entrar"}
+                {login.isLoading ? "Entrando…" : "Entrar"}
               </Button>
             </form>
 
