@@ -11,7 +11,7 @@
 
 import type { ReactNode } from "react";
 import { useCurrentUser } from "@/features/auth/hooks/useAuth";
-import { GradientBackdrop } from "@/components/layout/GradientBackdrop";
+import { LoadingScreen } from "@/components/ui/LoadingScreen";
 
 type AppBootstrapProps = {
   children: ReactNode;
@@ -21,14 +21,7 @@ export function AppBootstrap({ children }: AppBootstrapProps) {
   const { isBootstrapping } = useCurrentUser();
 
   if (isBootstrapping) {
-    return (
-      <div className="relative flex min-h-screen items-center justify-center">
-        <GradientBackdrop />
-        <p className="relative z-10 text-text text-lg font-medium">
-          Carregando…
-        </p>
-      </div>
-    );
+    return <LoadingScreen title="Carregando…" />;
   }
 
   return <>{children}</>;
