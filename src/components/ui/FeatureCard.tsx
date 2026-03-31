@@ -21,7 +21,7 @@ export function FeatureCard({
     <Link
       to={to}
       className={cn(
-        "flex flex-col gap-2 rounded-3xl border-2 border-border bg-surface p-6 shadow-sm transition",
+        "flex flex-col justify-center gap-2 rounded-3xl border-2 border-border bg-surface p-6 shadow-sm transition",
         "hover:border-primary hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent",
         className,
       )}
