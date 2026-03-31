@@ -26,11 +26,15 @@ export function FeatureCard({
         className,
       )}
     >
-      {icon ? <div className="text-primary">{icon}</div> : null}
-      <h3 className="text-lg font-semibold text-text">{title}</h3>
-      {description ? (
-        <p className="text-sm text-text-muted">{description}</p>
-      ) : null}
+      <div className="flex flex-row items-center gap-4">
+        {icon ? <div className="text-primary">{icon}</div> : null}
+        <div>
+          <h3 className="text-lg font-semibold text-text">{title}</h3>
+          {description ? (
+            <p className="text-sm text-text-muted">{description}</p>
+          ) : null}
+        </div>
+      </div>
     </Link>
   );
 }

@@ -16,13 +16,13 @@ export function LoadingScreen({
       <GradientBackdrop />
 
       {loadingSpinner && (
-        <CircularProgress size="4rem" style={{ color: "var(--color-text)" }} />
+        <CircularProgress size="4rem" style={{ color: "var(--color-light)" }} />
       )}
 
-      <p className="relative z-10 text-text text-3xl font-medium">{title}</p>
+      <p className="relative z-10 text-light text-3xl font-medium">{title}</p>
 
       {description && (
-        <p className="relative z-10 text-text text-xl font-medium">
+        <p className="relative z-10 text-light text-xl font-medium">
           {description}
         </p>
       )}
