@@ -6,7 +6,7 @@ import SmartRedirect from "@/routes/SmartRedirect";
 import NotFound from "@/shared/pages/NotFound";
 
 import LandingPage from "@/pages/landing/LandingPage";
-import HomePage from "@/pages/HomePage";
+import HomePage from "@/pages/dashboard/HomePage";
 
 import LoginPage from "@/pages/auth/LoginPage";
 import SignupPage from "@/pages/auth/SignupPage";
