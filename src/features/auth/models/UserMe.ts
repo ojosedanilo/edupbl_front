@@ -1,10 +1,10 @@
 export type UserRole =
-  | 'student'
-  | 'guardian'
-  | 'teacher'
-  | 'coordinator'
-  | 'porter'
-  | 'admin';
+  | "student"
+  | "guardian"
+  | "teacher"
+  | "coordinator"
+  | "porter"
+  | "admin";
 
 export interface UserMe {
   id: number;
@@ -17,4 +17,8 @@ export interface UserMe {
   is_active: boolean;
   classroom_id: number | null;
   must_change_password: boolean;
+}
+
+export interface UserPermissions {
+  permissions: string[];
 }

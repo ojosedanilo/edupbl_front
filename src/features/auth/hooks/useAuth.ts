@@ -37,7 +37,11 @@ export const ME_QUERY_KEY = ["me"] as const;
  * - `isFetching`      → true em qualquer carregamento (incluindo refetch)
  */
 export function useCurrentUser() {
-  const { data: user, isLoading, isFetching } = useQuery<UserMe | null>({
+  const {
+    data: user,
+    isLoading,
+    isFetching,
+  } = useQuery<UserMe | null>({
     queryKey: ME_QUERY_KEY,
     queryFn: async () => {
       try {
@@ -106,7 +110,8 @@ export function useLogout() {
     onSettled: () => {
       clearAccessToken();
       queryClient.setQueryData<null>(ME_QUERY_KEY, null);
-      queryClient.removeQueries({ queryKey: ME_QUERY_KEY });
+      queryClient.removeQueries({ queryKey: ME_QUERY_KEY }); // remove ["me"]
+      queryClient.removeQueries({ queryKey: ["me", "permissions"] }); // remove ["me", "permissions"]
       navigate("/entrar", { replace: true });
     },
   });
