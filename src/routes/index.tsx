@@ -5,17 +5,17 @@ import SmartRedirect from "@/routes/SmartRedirect";
 
 import NotFound from "@/shared/pages/NotFound";
 
-import LandingPage from "@/pages/LandingPage";
+import LandingPage from "@/pages/landing/LandingPage";
 import HomePage from "@/pages/HomePage";
 
-import LoginPage from "@/pages/LoginPage";
-import SignupPage from "@/pages/SignupPage";
+import LoginPage from "@/pages/auth/LoginPage";
+import SignupPage from "@/pages/auth/SignupPage";
 
-import DelaysPage from "@/pages/DelaysPage";
-import SchedulesPage from "@/pages/SchedulesPage";
-import UsersPage from "@/pages/UsersPage";
+import DelaysPage from "@/pages/delays/DelaysPage";
+import SchedulesPage from "@/pages/schedules/SchedulesPage";
+import UsersPage from "@/pages/users/UsersPage";
 
-import OccurrencesPage from "@/pages/OccurrencesPage";
+import OccurrencesPage from "@/pages/occurences/OccurrencesPage";
 
 import { Permissions } from "@/features/auth/models/Permissions";
 import PermissionRoute from "@/routes/PermissionRoute";

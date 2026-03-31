@@ -1,6 +1,6 @@
 import { useCurrentUser, useLogout } from "@/features/auth/hooks/useAuth";
 import { usePermissions } from "@/features/auth/hooks/usePermissions";
-import { FEATURE_CARDS } from "@/features/dashboard/featureCards";
+import { FEATURE_CARDS } from "@/components/dashboard/featureCards";
 import { FeatureCard } from "@/components/ui/FeatureCard";
 import { GradientBackdrop } from "@/components/layout/GradientBackdrop";
 import { Button } from "@/components/ui/Button";
