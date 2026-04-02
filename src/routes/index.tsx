@@ -15,7 +15,7 @@ import DelaysPage from "@/pages/delays/DelaysPage";
 import SchedulesPage from "@/pages/schedules/SchedulesPage";
 import UsersPage from "@/pages/users/UsersPage";
 
-import OccurrencesPage from "@/pages/occurences/OccurrencesPage";
+import OccurrencesPage from "@/pages/occurrences/OccurrencesPage";
 
 import { Permissions } from "@/features/auth/models/Permissions";
 import PermissionRoute from "@/routes/PermissionRoute";
