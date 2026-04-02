@@ -49,7 +49,7 @@ export const FEATURE_CARDS: FeatureCardConfig[] = [
       Permissions.DELAYS_VIEW_ALL,
       Permissions.DELAYS_VIEW_OWN,
       Permissions.DELAYS_VIEW_CHILD,
-      Permissions.DELAYS_VIEW_OWN_CLASS,
+      Permissions.DELAYS_VIEW_OWN_CLASSROOM,
     ],
   },
   {
@@ -96,7 +96,7 @@ export const FEATURE_CARDS: FeatureCardConfig[] = [
     requiredPermissions: [
       Permissions.OCCURRENCES_CREATE, // professores que fazem ocorrências também fazem chamada
       Permissions.REPORTS_VIEW_ALL,
-      Permissions.REPORTS_VIEW_OWN_CLASS,
+      Permissions.REPORTS_VIEW_OWN_CLASSROOM,
     ],
   },
   {

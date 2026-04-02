@@ -1,48 +1,62 @@
 // Espelho de SystemPermissions de backend\app\shared\rbac\permissions.py
 export const Permissions = {
   // Atestados
-  CERTIFICATES_APPROVE: "certificates:approve",
+  CERTIFICATES_REVIEW: "certificates:review", // approve/reject
   CERTIFICATES_SUBMIT: "certificates:submit",
   CERTIFICATES_VALIDATE: "certificates:validate",
 
   // Atrasos
   DELAYS_CREATE: "delays:create",
-  DELAYS_APPROVE: "delays:approve",
-  DELAYS_REJECT: "delays:reject",
-  DELAYS_VIEW_ALL: "delays:read_all",
-  DELAYS_VIEW_OWN: "delays:read_own",
-  DELAYS_VIEW_CHILD: "delays:read_child",
-  DELAYS_VIEW_OWN_CLASS: "delays:read_own_class",
+  DELAYS_REVIEW: "delays:review", // approve/reject
+  DELAYS_VIEW_ALL: "delays:read_all", // Todos os atrasos do sistema
+  DELAYS_VIEW_CHILD: "delays:read_child", // Atrasos do(s) filho(s)
+  DELAYS_VIEW_OWN: "delays:read_own", // Meus próprios atrasos
+  // Atrasos da minha turma (DT)
+  DELAYS_VIEW_OWN_CLASSROOM: "delays:read_own_classroom",
 
   // Espaços
-  SPACES_VIEW_ALL: "spaces:read_all",
+  SPACES_MANAGE: "spaces:manage", // create, edit, delete
   SPACES_RESERVATE: "spaces:reservate",
-  SPACES_MANAGE: "spaces:manage", // create + edit + delete
+  SPACES_VIEW_ALL: "spaces:read_all",
 
   // Horários
-  SCHEDULES_VIEW: "schedules:view",
-  SCHEDULES_MANAGE: "schedules:manage",
+  SCHEDULES_MANAGE: "schedules:manage", // create, edit, delete
+  SCHEDULES_VIEW_OWN: "schedules:read_own", // Minha turma / meu contexto
+  SCHEDULES_VIEW_CHILD: "schedules:read_child", // Turma(s) do(s) filho(s)
+  // Acesso amplo (coord/admin/porteiro/prof)
+  SCHEDULES_VIEW_ALL: "schedules:read_all",
+
+  // Mídias
+  MEDIAS_MANAGE: "medias:manage", // create, edit, delete
+  MEDIAS_RESERVATE: "medias:reservate",
+  MEDIAS_VIEW_ALL: "medias:read_all",
 
   // Ocorrências
   OCCURRENCES_CREATE: "occurrences:create",
-  OCCURRENCES_VIEW_ALL: "occurrences:read_all",
-  OCCURRENCES_VIEW_OWN: "occurrences:read_own",
+  OCCURRENCES_DELETE: "occurrences:delete",
+  OCCURRENCES_EDIT: "occurrences:update",
+  OCCURRENCES_VIEW_ALL: "occurrences:read_all", // Todas as ocorrências
+  // Ocorrências do(s) filho(s)
   OCCURRENCES_VIEW_CHILD: "occurrences:read_child",
+  OCCURRENCES_VIEW_OWN: "occurrences:read_own", // Criei OU sou o aluno
 
   // Relatórios
-  REPORTS_VIEW_ALL: "reports:view_all",
-  REPORTS_VIEW_OWN_CLASS: "reports:view_own_class",
+  REPORTS_VIEW_ALL: "reports:view_all", // Relatórios de todas as turmas
+  // Relatórios da minha turma
+  REPORTS_VIEW_OWN_CLASSROOM: "reports:view_own_classroom",
 
   // Sugestões
-  SUGGESTIONS_SUBMIT: "suggestions:submit",
   SUGGESTIONS_MODERATE: "suggestions:moderate",
+  SUGGESTIONS_SUBMIT: "suggestions:submit",
 
   // Usuários
-  USER_VIEW_ALL: "users:read_all",
-  USER_CREATE: "user:create",
-  USER_EDIT: "user:update",
-  USER_DELETE: "user:delete",
-  USER_CHANGE_ROLE: "user:change_role",
+  USER_CHANGE_ROLE: "users:change_role",
+  USER_CREATE: "users:create",
+  USER_DELETE: "users:delete",
+  USER_EDIT: "users:update",
+  USER_VIEW_ALL: "users:read_all", // Todos os usuários
+  USER_VIEW_CHILD: "users:read_child", // Informações do(s) filho(s)
+  USER_VIEW_OWN: "users:read_own", // Próprias informações
 } as const;
 
 export type Permission = (typeof Permissions)[keyof typeof Permissions];

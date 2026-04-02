@@ -64,7 +64,7 @@ export function AppRoutes() {
                 Permissions.DELAYS_VIEW_ALL,
                 Permissions.DELAYS_VIEW_OWN,
                 Permissions.DELAYS_VIEW_CHILD,
-                Permissions.DELAYS_VIEW_OWN_CLASS,
+                Permissions.DELAYS_VIEW_OWN_CLASSROOM,
               ]}
             />
           }
