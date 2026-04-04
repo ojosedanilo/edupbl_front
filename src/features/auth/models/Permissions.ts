@@ -11,8 +11,7 @@ export const Permissions = {
   DELAYS_VIEW_ALL: "delays:read_all", // Todos os atrasos do sistema
   DELAYS_VIEW_CHILD: "delays:read_child", // Atrasos do(s) filho(s)
   DELAYS_VIEW_OWN: "delays:read_own", // Meus próprios atrasos
-  // Atrasos da minha turma (DT)
-  DELAYS_VIEW_OWN_CLASSROOM: "delays:read_own_classroom",
+  DELAYS_VIEW_OWN_CLASSROOM: "delays:read_own_classroom", // Atrasos da minha turma (DT)
 
   // Espaços
   SPACES_MANAGE: "spaces:manage", // create, edit, delete
@@ -23,8 +22,7 @@ export const Permissions = {
   SCHEDULES_MANAGE: "schedules:manage", // create, edit, delete
   SCHEDULES_VIEW_OWN: "schedules:read_own", // Minha turma / meu contexto
   SCHEDULES_VIEW_CHILD: "schedules:read_child", // Turma(s) do(s) filho(s)
-  // Acesso amplo (coord/admin/porteiro/prof)
-  SCHEDULES_VIEW_ALL: "schedules:read_all",
+  SCHEDULES_VIEW_ALL: "schedules:read_all", // Acesso amplo
 
   // Mídias
   MEDIAS_MANAGE: "medias:manage", // create, edit, delete
@@ -35,14 +33,13 @@ export const Permissions = {
   OCCURRENCES_CREATE: "occurrences:create",
   OCCURRENCES_DELETE: "occurrences:delete",
   OCCURRENCES_EDIT: "occurrences:update",
-  OCCURRENCES_VIEW_ALL: "occurrences:read_all", // Todas as ocorrências
-  // Ocorrências do(s) filho(s)
+  OCCURRENCES_VIEW_ALL: "occurrences:read_all",
   OCCURRENCES_VIEW_CHILD: "occurrences:read_child",
-  OCCURRENCES_VIEW_OWN: "occurrences:read_own", // Criei OU sou o aluno
+  OCCURRENCES_VIEW_OWN: "occurrences:read_own",
+  OCCURRENCES_VIEW_OWN_CLASSROOM: "occurrences:read_own_classroom",
 
   // Relatórios
-  REPORTS_VIEW_ALL: "reports:view_all", // Relatórios de todas as turmas
-  // Relatórios da minha turma
+  REPORTS_VIEW_ALL: "reports:view_all",
   REPORTS_VIEW_OWN_CLASSROOM: "reports:view_own_classroom",
 
   // Sugestões
@@ -54,9 +51,10 @@ export const Permissions = {
   USER_CREATE: "users:create",
   USER_DELETE: "users:delete",
   USER_EDIT: "users:update",
-  USER_VIEW_ALL: "users:read_all", // Todos os usuários
-  USER_VIEW_CHILD: "users:read_child", // Informações do(s) filho(s)
-  USER_VIEW_OWN: "users:read_own", // Próprias informações
+  USER_EDIT_OWN_CLASSROOM: "users:update_own_classroom",
+  USER_VIEW_ALL: "users:read_all",
+  USER_VIEW_CHILD: "users:read_child",
+  USER_VIEW_OWN: "users:read_own",
 } as const;
 
 export type Permission = (typeof Permissions)[keyof typeof Permissions];
